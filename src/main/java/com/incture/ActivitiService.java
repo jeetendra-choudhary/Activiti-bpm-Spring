@@ -25,7 +25,9 @@ public class ActivitiService {
 
 	@Transactional
     public List<Task> getTasks(String assignee) {
-        return taskService.createTaskQuery().taskAssignee(assignee).list();
+		System.out.println(">> Inside ActivitiService:: getTasks()");
+		return taskService.createTaskQuery().list();
+//        return taskService.createTaskQuery().taskAssignee(assignee).list();
     }
 
 }

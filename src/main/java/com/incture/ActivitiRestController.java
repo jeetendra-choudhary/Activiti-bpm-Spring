@@ -24,7 +24,10 @@ public class ActivitiRestController {
 
     @RequestMapping(value="/tasks", method= RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
     public List<TaskRepresentation> getTasks(@RequestParam String assignee) {
+    	System.out.println(">> Inside ActivitiRestController:: getTasks()");
+    	
         List<Task> tasks = myService.getTasks(assignee);
+        System.out.println("Number of tasks: "+tasks.size());
         List<TaskRepresentation> dtos = new ArrayList<TaskRepresentation>();
         for (Task task : tasks) {
             dtos.add(new TaskRepresentation(task.getId(), task.getName()));

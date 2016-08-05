@@ -1,25 +1,32 @@
 package com.incture;
 
+import javax.sql.DataSource;
+
 import org.activiti.engine.RepositoryService;
 import org.activiti.engine.RuntimeService;
 import org.activiti.engine.TaskService;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import javax.sql.DataSource;
 
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-public class MyApplication {
+public class MyApplication extends SpringBootServletInitializer{
 
-	public static void main(String[] args) {
-		SpringApplication.run(MyApplication.class, args);
-	}
+//	public static void main(String[] args) {
+//		SpringApplication.run(MyApplication.class, args);
+//	}
+	
+	
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(MyApplication.class);
+    }
 
 	@Bean
     public CommandLineRunner init(final RepositoryService repositoryService,
