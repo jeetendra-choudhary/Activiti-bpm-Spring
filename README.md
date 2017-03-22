@@ -17,7 +17,7 @@ To create api's exposing Activiti Process Engine which can be consumed in any we
 
 #### Main Application Class - For Starting and running the application -
 
-    `
+    
 	import org.activiti.engine.RepositoryService;
 	import org.activiti.engine.RuntimeService;
 	import org.activiti.engine.TaskService;
@@ -60,7 +60,7 @@ To create api's exposing Activiti Process Engine which can be consumed in any we
 
 #### Data Base configuration - Part of main application class
 
-    `
+    
 	@Bean
 	public DataSource database(){
 		// TODO change the connection url & details for different DB
@@ -70,4 +70,4 @@ To create api's exposing Activiti Process Engine which can be consumed in any we
 				.driverClassName("com.mysql.jdbc.Driver")
 				.build();
 	}
-    `
+    
